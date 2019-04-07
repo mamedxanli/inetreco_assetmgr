@@ -1,4 +1,4 @@
-{{ object.hostname }}
+{{ object.model }}
 {{ object.location }}
 {{ object.owner }}
 {{ object.brand }}

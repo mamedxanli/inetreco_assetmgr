@@ -27,23 +27,10 @@ from django.views.static import serve
 from . import views
 
 urlpatterns = [
-    url(r'^$', login_required(views.HomePage.as_view()), name='home'),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
-    #IP Reports views
-    url(r'^ip_used_list/$', login_required(views.IPlist_Used.as_view()), name='ip_used_list'),
-    url(r'^ip_decomissioned_list/$', login_required(views.IPlist_Decomissioned.as_view()), name='ip_decomissioned_list'),
-    url(r'^ip_all_list/$', login_required(views.IPlist_All.as_view()), name='ip_all_list'),
-    url(r'^ip_ilo_list/$', login_required(views.IPlist_ILO.as_view()), name='ip_ilo_list'),
-    url(r'^ip_public_list/$', login_required(views.IPlist_Public.as_view()), name='ip_public_list'),
-    url(r'^ip_servers_list/$', login_required(views.IPlist_Servers.as_view()), name='ip_servers_list'),
-    url(r'^ip_netdevs_list/$', login_required(views.IPlist_Netdevs.as_view()), name='ip_netdevs_list'),
-   
+    url(r'^$', views.HomePage.as_view(), name='home'),
     #Apps views
     url(r'^netdev/', include('netdev.urls')),
-    url(r'^company/', include('company.urls')),
     url(r'^server/', include('server.urls')),
-    url(r'^vserver/', include('vserver.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     #Search urls

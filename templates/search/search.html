@@ -46,7 +46,7 @@
                                             {% for result in page.object_list %}
                                             <tr>
                                                 <td>
-                                                    <a href="{{ result.object.get_detail }}">{% if result.hostname %}{{ result.hostname }}{% else %}{{ result.name }}{% endif %}</a>
+                                                    <a href="{{ result.object.get_detail }}">{% if result.model %}{{ result.model }}{% else %}{{ result.name }}{% endif %}</a>
                                                 <td>
                                                     {{ result.object.get_class }}
                                                 </td>

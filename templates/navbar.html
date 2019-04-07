@@ -7,10 +7,6 @@
                     <img alt="image" class="img" src="{% static 'inetreco_logo.logo' %}">
                         </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ user.username }}</strong>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="{% url 'logout' %}">Logout</a></li>
-                    </ul>
                 </div>
                 <div class="logo-element">
                     <img alt="image" class="img" src="{% static 'inetreco_logo.logo' %}">
@@ -19,59 +15,31 @@
             <li>
                 <a href="{% url 'haystack_search' %}"><i class="fa fa-search"></i> <span class="nav-label">Search</span></a>
             </li>
-            <li class="active">
-                <a href="#"><i class="fa fa-plus"></i> <span class="nav-label">Add / Create</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'server_create' %}">Add Server</a></li>
-                    <li><a href="{% url 'netdev_create' %}">Add Network Device</a></li>
-                    <li><a href="{% url 'company_create' %}">Add Company</a></li>
-                    <li><a href="{% url 'vserver_create' %}">Add vServer</a></li>
-                </ul>
-            </li>
+            
             <li>
-                <a href="#"><i class="fa fa-pie-chart"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-pie-chart"></i> <span class="nav-label">Services</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a href="#">IP Reports <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level collapse">
-                            <li><a href="{% url 'ip_servers_list' %}">Servers IPs</a></li>
-                            <li><a href="{% url 'ip_netdevs_list' %}">Network Devices IPs</a></li>
-                            <li><a href="{% url 'ip_ilo_list' %}">iLO IPs</a></li>
-                            <li><a href="{% url 'ip_public_list' %}">Public IPs</a></li>
-                            <li><a href="{% url 'ip_used_list' %}">All IPs in use</a></li>
-                            <li><a href="{% url 'ip_decomissioned_list' %}">Decomissioned IPs</a></li>
-                            <li><a href="{% url 'ip_all_list' %}">All IPs</a></li>
-                        </ul>
-                    </li>
-                    
+                    <li><a href="{% url 'server_list' %}">Services List</a></li>                    
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Servers</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'server_create' %}">Add server</a></li>
-                    <li><a href="{% url 'server_list' %}">Server List / Edit</a></li>
+                    <li><a href="{% url 'server_list' %}">Server List</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#"><i class="fa fa-codepen"></i> <span class="nav-label">vServers</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'vserver_create' %}">Add vServer</a></li>
-                    <li><a href="{% url 'vserver_list' %}">vServer List / Edit</a></li>
-                </ul>
-            </li>
+            
             <li>
                 <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Network Devices</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'netdev_create' %}">Add device</a></li>
-                    <li><a href="{% url 'netdev_list' %}">Device List / Edit</a></li>
+                    <li><a href="{% url 'netdev_list' %}">Device List</a></li>
                 </ul>
             </li>
+            
             <li>
-                <a href="#"><i class="fa fa-handshake-o"></i> <span class="nav-label">Companies</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Other devices</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'company_create' %}">Add company</a></li>
-                    <li><a href="{% url 'company_list' %}">Company List / Edit</a></li>
+                    <li><a href="{% url 'netdev_list' %}">Other devices</a></li>
                 </ul>
             </li>
      

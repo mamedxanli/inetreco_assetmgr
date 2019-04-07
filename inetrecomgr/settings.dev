@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     #Our apps
     'server',
     'netdev',
-    'company',
-    'vserver',
     #Search
     'haystack',
     #Files cleanup

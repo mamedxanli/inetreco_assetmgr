@@ -8,8 +8,6 @@ from itertools import chain
 # Import from our apps
 from netdev.models import Netdev
 from server.models import Server
-from vserver.models import Vserver
-from company.models import Company
 
 class HomePage(generic.TemplateView):
     template_name = "inetrecomgr/index.html"
@@ -23,12 +21,8 @@ class HomePage(generic.TemplateView):
         context = super().get_context_data(**kwargs)
         context['netdevs_active'] = Netdev.objects.filter(decomissioned=False)
         context['servers_active']  = Server.objects.filter(decomissioned=False)
-        context['vservers_active'] = Vserver.objects.filter(decomissioned=False)
-        context['companies_active'] = Company.objects.filter(inactive=False)
         context['netdevs_decomissioned'] = Netdev.objects.filter(decomissioned=True)
         context['servers_decomissioned']  = Server.objects.filter(decomissioned=True)
-        context['vservers_decomissioned'] = Vserver.objects.filter(decomissioned=True)
-        context['companies_decomissioned'] = Company.objects.filter(inactive=True)
         return context
 
 """
@@ -64,8 +58,7 @@ class IPlist_Used(generic.ListView):
         """
         qs1 = Netdev.objects.filter(decomissioned=False)
         qs2 = Server.objects.filter(decomissioned=False)
-        qs4 = Vserver.objects.filter(decomissioned=False)
-        ip_list = list(chain(qs1, qs2, qs4))
+        ip_list = list(chain(qs1, qs2))
         return ip_list
 
 
@@ -94,8 +87,7 @@ class IPlist_Decomissioned(generic.ListView):
         """
         qs1 = Netdev.objects.filter(decomissioned=True)
         qs2 = Server.objects.filter(decomissioned=True)
-        qs4 = Vserver.objects.filter(decomissioned=True)
-        ip_list = list(chain(qs1,qs2,qs4))
+        ip_list = list(chain(qs1,qs2))
         return ip_list
 
 
@@ -124,8 +116,7 @@ class IPlist_All(generic.ListView):
         """
         qs1 = Netdev.objects.all().order_by("decomissioned")
         qs2 = Server.objects.all().order_by("decomissioned")
-        qs4 = Vserver.objects.all().order_by("decomissioned")
-        ip_list = list(chain(qs1,qs2,qs4))
+        ip_list = list(chain(qs1,qs2))
         return ip_list
 
 
@@ -154,8 +145,7 @@ class IPlist_Public(generic.ListView):
         """
         qs1 = Netdev.objects.all().order_by("decomissioned")
         qs2 = Server.objects.all().order_by("decomissioned")
-        qs4 = Vserver.objects.all().order_by("decomissioned")
-        ip_list = list(chain(qs1,qs2,qs4))
+        ip_list = list(chain(qs1,qs2))
         return ip_list
 
 

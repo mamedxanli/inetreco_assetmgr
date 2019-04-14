@@ -35,6 +35,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     #Search urls
     url(r'^search/', include('haystack.urls')),
+    path('email/', views.emailView, name='email'),
+    path('success/', views.successView, name='success'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # Url for file uploads
 urlpatterns += [

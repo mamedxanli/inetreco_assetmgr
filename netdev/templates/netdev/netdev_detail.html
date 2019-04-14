@@ -53,6 +53,15 @@
             <h2 class="m-b-xs">Remarks</h2>
             <h3 class="m-b-xs">{{ object.other }}</h3>
             <div class="hr-line-dashed"></div>
+            <h1>Order</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                    
+                        <input class="btn btn-success" type="button" value="Send a message" onclick="location.href='{% url 'email' %}'"  />
+                        
+    </div>
+</form>
         </div>
     </div>
 </div>

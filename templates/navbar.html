@@ -15,34 +15,17 @@
             <li>
                 <a href="{% url 'haystack_search' %}"><i class="fa fa-search"></i> <span class="nav-label">Search</span></a>
             </li>
-            
             <li>
-                <a href="#"><i class="fa fa-pie-chart"></i> <span class="nav-label">Services</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Cisco</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'server_list' %}">Services List</a></li>                    
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Servers</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'server_list' %}">Server List</a></li>
+                    <li><a href="{% url 'router_list' %}">Router</a></li>
+                    <li><a href="{% url 'firewall_list' %}">Firewall</a></li>
+                    <li><a href="{% url 'switch_list' %}">Switch</a></li>
+                    <li><a href="{% url 'other_list' %}">Other</a></li>
                 </ul>
             </li>
             
-            <li>
-                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Network Devices</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'netdev_list' %}">Device List</a></li>
-                </ul>
-            </li>
             
-            <li>
-                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Other devices</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="{% url 'netdev_list' %}">Other devices</a></li>
-                </ul>
-            </li>
-     
         </ul>
     </div>
 </nav>

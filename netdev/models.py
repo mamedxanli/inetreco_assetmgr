@@ -10,28 +10,28 @@ def save_directory_path(instance, filename):
 class Netdev(models.Model):
 
     # Timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    created_by = models.CharField(max_length=100, default=None)
+    #created_at = models.DateTimeField(auto_now_add=True)
+    #updated_at = models.DateTimeField(auto_now=True)
+    #created_by = models.CharField(max_length=100, default=None)
 
     # Model
     device_type = models.CharField("Device type", max_length=30)
     brand = models.CharField("Brand", max_length=20)
     netdev_model = models.CharField("Model", max_length=20)
-    generation = models.CharField("Generation", max_length=5)
+    generation = models.CharField("Generation", blank=True, max_length=5)
     manufacture_year = models.IntegerField("Year of manufacture")
     os = models.CharField("Device image", max_length=100, default=None)
     port_number = models.IntegerField("Number of physical network ports")
     port_description = models.CharField("Port description", max_length=50)
     serial_number = models.CharField("Serial number", max_length=20)
-    warranty = models.CharField("Warranty status", max_length=100)
+    warranty = models.CharField("Warranty status", blank=True, max_length=100)
     pp = models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Purchase price')
     sp = models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Selling price')
     condition = models.CharField("Condition", max_length=100, default=None)
     file_picture_1 = models.FileField("Front Picture",blank=True, default=None, upload_to=save_directory_path)
     file_picture_2 = models.FileField("Back Picture",blank=True, default=None, upload_to=save_directory_path)
     file_other = models.FileField("Other file/Zip file if many", blank=True, default=None, upload_to=save_directory_path)
-    other = models.TextField("Notes", max_length=10000)
+    other = models.TextField("Notes", blank=True, max_length=10000)
 
 
     def __str__(self):

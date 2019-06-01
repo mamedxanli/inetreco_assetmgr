@@ -8,9 +8,9 @@ def save_directory_path(instance, filename):
 
 class Server(models.Model):
     # Timestamps
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    created_by = models.CharField(max_length=100, default=None)
+    #created_at = models.DateTimeField(auto_now_add=True)
+    #updated_at = models.DateTimeField(auto_now=True)
+    #created_by = models.CharField(max_length=100, default=None)
 
     # Model
     brand = models.CharField("Brand", max_length=20)
@@ -18,15 +18,15 @@ class Server(models.Model):
     generation = models.CharField("Generation", max_length=5)
     manufacture_year = models.IntegerField("Year of manufacture")
     serial_number = models.CharField("Serial number", max_length=20)
-    os = models.CharField("Operating system", max_length=100, default=None)
-    warranty = models.CharField("Warranty status", max_length=100)
+    os = models.CharField("Operating system", blank=True, max_length=100, default=None)
+    warranty = models.CharField("Warranty status", blank=True, max_length=100)
     server_cpu = models.CharField("Server CPU", max_length=100)
     server_ram = models.CharField("Server RAM", max_length=100)
     local_storage = models.CharField("Local storage", max_length=100)
     file_picture_1 = models.FileField("Front Picture",blank=True, default=None, upload_to=save_directory_path)
     file_picture_2 = models.FileField("Back Picture",blank=True, default=None, upload_to=save_directory_path)
     file_other = models.FileField("Other file/Zip file if many", blank=True, default=None, upload_to=save_directory_path)
-    other = models.TextField("Notes", max_length=10000)
+    other = models.TextField("Notes", blank=True, max_length=10000)
 
 
     def __str__(self):

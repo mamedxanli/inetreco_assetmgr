@@ -9,14 +9,53 @@ from django.utils.translation import ugettext as _
 # Import from our apps
 from netdev.models import Netdev
 
-
-class NetdevList(generic.ListView):
+class RouterList(generic.ListView):
     """
-    List view for the network devices
+    List view for the router devices
     """
     model = Netdev
-    template_name = 'netdev/netdev_list.html'
+    template_name = 'netdev/router_list.html'
     paginate_by = 50
+
+    def get_queryset(self):
+        qs = Netdev.objects.filter(device_type="router")
+        return qs.order_by("pk")
+
+class FirewallList(generic.ListView):
+    """
+    List view for the firewall devices
+    """
+    model = Netdev
+    template_name = 'netdev/firewall_list.html'
+    paginate_by = 50
+
+    def get_queryset(self):
+        qs = Netdev.objects.filter(device_type="firewall")
+        return qs.order_by("pk")
+
+class SwitchList(generic.ListView):
+    """
+    List view for the switch devices
+    """
+    model = Netdev
+    template_name = 'netdev/switch_list.html'
+    paginate_by = 50
+
+    def get_queryset(self):
+        qs = Netdev.objects.filter(device_type="switch")
+        return qs.order_by("pk")
+
+class OtherList(generic.ListView):
+    """
+    List view for the router devices
+    """
+    model = Netdev
+    template_name = 'netdev/other_list.html'
+    paginate_by = 50
+
+    def get_queryset(self):
+        qs = Netdev.objects.filter(device_type="other")
+        return qs.order_by("pk")
 
 class NetdevDetail(generic.DetailView):
     """
